@@ -1,0 +1,10 @@
+/* QRCodeScanner.css */
+video {
+    border: 2px solid black;
+    border-radius: 8px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
