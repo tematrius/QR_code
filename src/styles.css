@@ -11,14 +11,6 @@ body {
     height: 100vh;
   }
   
-  nav {
-    background-color: #333;
-    color: white;
-    padding: 15px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
   .qr-generator {
     text-align: center;
     max-width: 400px;
@@ -72,24 +64,6 @@ body {
     color: red;
     font-size: 14px;
     margin-bottom: 10px;
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 20px;
-  }
-  
-  nav ul li {
-    display: inline;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
   }
   
   .content {
@@ -153,4 +127,175 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
     
-    
+ /* ======== STYLES POUR LE DASHBOARD ======== */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  padding: 20px;
+  text-align: center;
+}
+
+.dashboard h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Boutons sous forme de cartes */
+.dashboard-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.dashboard-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card i {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.dashboard-card span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Animation au survol */
+.dashboard-card:hover i {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Adaptation mobile */
+@media (max-width: 600px) {
+  .dashboard-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* styles.css */
+nav {
+  background-color: #007BFF; /* Bleu moderne */
+  padding: 10px 20px; /* Un peu d'espace autour du navbar */
+  border-radius: 8px; /* Coins arrondis pour un effet moderne */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre portée */
+}
+
+ul {
+  list-style-type: none; /* Enlever les puces */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around; /* Espacement égal entre les éléments */
+}
+
+li {
+  margin: 0 15px; /* Espacement entre les éléments du menu */
+}
+
+a {
+  text-decoration: none; /* Enlever la sous-ligne */
+  color: white; /* Texte en blanc */
+  font-family: 'Roboto', sans-serif; /* Police moderne */
+  font-size: 18px; /* Taille de la police */
+  font-weight: 500; /* Poids de la police pour un style élégant */
+  transition: color 0.3s ease; /* Animation douce pour le hover */
+}
+
+a:hover {
+  color: #ffcc00; /* Changer la couleur au survol */
+}
+
+a:active {
+  color: #00b5e2; /* Changer la couleur quand un lien est activé */
+}
+/* styles.css */
+
+/* Conteneur principal */
+.add-guest {
+  max-width: 600px; /* Largeur maximale pour un design plus centré */
+  margin: 50px auto; /* Centrer le conteneur */
+  padding: 20px;
+  background-color: #f4f4f9; /* Fond gris clair */
+  border-radius: 8px; /* Coins arrondis pour un effet moderne */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée subtile */
+}
+
+/* Titre de la page */
+.add-guest h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Champ de texte */
+input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px; /* Coins arrondis */
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #007BFF; /* Changer la couleur de bordure au focus */
+}
+
+/* Bouton d'ajout */
+button {
+  padding: 12px;
+  background-color: #007BFF; /* Bleu moderne */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Changer la couleur au survol */
+}
+
+button:active {
+  background-color: #004085; /* Changer la couleur lors du clic */
+}
+
+   

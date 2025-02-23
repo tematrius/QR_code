@@ -6,10 +6,19 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <h2>Dashboard</h2>
-      <button onClick={() => navigate("/add-guest")}>Ajouter un invité</button>
-      <button onClick={() => navigate("/import-excel")}>Importer un fichier Excel</button>
+      <div className="dashboard-buttons">
+        <div className="dashboard-card" onClick={() => navigate("/add-guest")}>
+          <i className="fas fa-user-plus"></i>
+          <span>Ajouter un invité</span>
+        </div>
+        <div className="dashboard-card" onClick={() => navigate("/import-excel")}>
+          <i className="fas fa-file-excel"></i>
+          <span>Importer un fichier Excel</span>
+        </div>
+      </div>
     </div>
   );
 };
+
 
 export default Dashboard;

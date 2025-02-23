@@ -14,7 +14,7 @@ const ImportExcel = () => {
 
   const handleImport = async () => {
     if (!file) return;
-
+  
     const reader = new FileReader();
     reader.onload = async (event) => {
       const binaryStr = event.target.result;
@@ -22,26 +22,34 @@ const ImportExcel = () => {
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
       const data = XLSX.utils.sheet_to_json(sheet);
-
+  
+      let successCount = 0;
+      let errorCount = 0;
+  
       for (let row of data) {
         if (row.Nom && row.Email) {
           await addInvitation(row.Nom, row.Email);
-          alert("Invités ajoutés avec succès !");
-          navigate("/dashboard"); 
-          break;         
-        }else{
-            alert("fichier non pris en compte !");
-            navigate("/import-excel"); 
-            break;
-                      
+          successCount++;
+        } else {
+          errorCount++;
         }
       }
-
-
+  
+      // Affichage des messages après le traitement de tous les invités
+      if (successCount > 0) {
+        alert(`${successCount} invités ajoutés avec succès !`);
+        navigate("/dashboard");
+      }
+  
+      if (errorCount > 0) {
+        alert(`${errorCount} lignes étaient invalides et n'ont pas été importées.`);
+        navigate("/import-excel");
+      }
     };
-
+  
     reader.readAsBinaryString(file);
   };
+  
 
   return (
     <div className="import-excel">
