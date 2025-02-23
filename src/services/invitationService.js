@@ -11,7 +11,7 @@ export const addInvitation = async (guestName, guestEmail) => {
     });
 
     // Génération de l'URL d'invitation
-    const invitationURL = `http://localhost:3001/check-in/${docRef.id}`;
+    const invitationURL = `http://localhost:5174/check-in/${docRef.id}`;
 
     // Mise à jour du document Firestore avec l'URL
     await updateDoc(doc(db, "invitations", docRef.id), {

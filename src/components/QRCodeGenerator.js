@@ -10,7 +10,7 @@ const QRCodeGenerator = () => {
   const handleGenerateQR = async () => {
     if (!guestName || !email) return;
     const invitationId = await addInvitation(guestName, email);
-    setQrValue(`http://localhost:3001/check-in/${invitationId}`);
+    setQrValue(`http://localhost:5174/check-in/${invitationId}`);
   };
 
   return (

@@ -32,7 +32,7 @@ const DisplayGuests = () => {
           <div className="guest-item" key={guest.id}>
             <h3>{guest.nom}</h3>
             <p>Email: {guest.email}</p>
-            <p>Status: {guest.status}</p>
+            <p>Status: {guest.scanned ? "Scanné" : "Non scanné"}</p>
             <div className="qr-code">
               <QRCode value={guest.url} size={128} /> {/* Génère le code QR à partir de l'URL */}
             </div>
