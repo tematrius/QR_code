@@ -26,11 +26,18 @@ const ImportExcel = () => {
       for (let row of data) {
         if (row.Nom && row.Email) {
           await addInvitation(row.Nom, row.Email);
+          alert("Invités ajoutés avec succès !");
+          navigate("/dashboard"); 
+          break;         
+        }else{
+            alert("fichier non pris en compte !");
+            navigate("/import-excel"); 
+            break;
+                      
         }
       }
 
-      alert("Invités ajoutés avec succès !");
-      navigate("/dashboard");
+
     };
 
     reader.readAsBinaryString(file);
