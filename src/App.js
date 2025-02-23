@@ -1,7 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import AppRoutes from "./routes";
 import "./styles.css";
 
 function App() {
@@ -10,10 +9,7 @@ function App() {
       <div className="app-container">
         <Navbar />
         <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Routes>
+          <AppRoutes />
         </div>
       </div>
     </Router>

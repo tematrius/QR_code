@@ -1,50 +1,43 @@
-import { useState, useRef } from "react";
-import { BrowserMultiFormatReader } from '@zxing/library';
-import './QRCodeScanner.css'; // Assurez-vous que le chemin est correct
+import { useEffect, useRef, useState } from "react";
+import { BrowserMultiFormatReader } from "@zxing/library";
 
-
-const QRCodeScanner = ({ onScan }) => {
-  const [scanResult, setScanResult] = useState("");
+const QRCodeScanner = () => {
+  const [scannedData, setScannedData] = useState("");
   const videoRef = useRef(null);
-  const [isScanning, setIsScanning] = useState(false);
-  let codeReader = useRef(null);
 
-  const startScanner = () => {
-    codeReader.current = new BrowserMultiFormatReader();
-    codeReader.current.decodeFromVideoDevice(null, videoRef.current, (result, error) => {
-      if (result) {
-        setScanResult(result.text);
-        if (onScan) onScan(result.text); // Appel de la fonction callback avec le résultat
-      }
-      if (error && !(error instanceof Error)) {
-        console.error(error);
-      }
-    });
-    setIsScanning(true);
-  };
+  useEffect(() => {
+    const codeReader = new BrowserMultiFormatReader();
+    let selectedDeviceId;
 
-  const stopScanner = () => {
-    if (codeReader.current) {
-      codeReader.current.reset(); // Arrêter le scanner
-    }
-    setIsScanning(false);
-  };
+    // Obtenir la liste des caméras et utiliser la première disponible
+    codeReader
+      .listVideoInputDevices()
+      .then((videoInputDevices) => {
+        if (videoInputDevices.length > 0) {
+          selectedDeviceId = videoInputDevices[0].deviceId;
+          return codeReader.decodeFromVideoDevice(
+            selectedDeviceId,
+            videoRef.current,
+            (result, err) => {
+              if (result) {
+                setScannedData(result.getText());
+              }
+            }
+          );
+        }
+      })
+      .catch((err) => console.error(err));
+
+    return () => codeReader.reset();
+  }, []);
 
   return (
-    <div>
-      <h2>Scanner QR Code</h2>
-      <div>
-        <video ref={videoRef} width="100%" height="auto" />
-        {!isScanning ? (
-          <button onClick={startScanner}>Démarrer le scanner</button>
-        ) : (
-          <button onClick={stopScanner}>Arrêter le scanner</button>
-        )}
-      </div>
-      <p>Résultat du scan: {scanResult}</p>
+    <div className="qr-scanner">
+      <h2>Scanner un QR Code</h2>
+      <video ref={videoRef} style={{ width: "100%", maxWidth: "300px" }} />
+      <p>Résultat : {scannedData || "Aucun QR Code scanné"}</p>
     </div>
   );
 };
 
 export default QRCodeScanner;
-
