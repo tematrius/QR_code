@@ -298,4 +298,80 @@ button:active {
   background-color: #004085; /* Changer la couleur lors du clic */
 }
 
-   
+   /* styles.css */
+.guests-list {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.guests-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.guest-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.guest-item h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.guest-item p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.qr-code {
+  margin-top: 10px;
+  text-align: center;
+}
+/* Styles pour la liste des invités */
+.guests-list {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.guests-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.guest-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.guest-item h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.guest-item p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.qr-code {
+  margin-top: 10px;
+  text-align: center;
+}
